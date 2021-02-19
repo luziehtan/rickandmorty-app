@@ -1,4 +1,6 @@
 import './Card.css'
+import Button from '../Button/Button'
+
 import {useState} from 'react'
 
 export default function Card({name, species, image, status, gender, origin, location}) {
@@ -10,10 +12,11 @@ export default function Card({name, species, image, status, gender, origin, loca
             <h2 className="Card__name">{name}</h2> ({species === 'Human' ? '🧍 Human' : '👽 Alien'})
             <center><img className="Card__img" src={image} alt="" /></center>
             
-            <button className="Card__button" onClick={event => {
-          event.stopPropagation()
-          setIsTextVisible(!isTextVisible)
-        }}>{isTextVisible ? 'Hide Details' : 'Show Details'}</button>
+            <Button 
+            className="Button"
+            title={isTextVisible ? 'Hide Details' : 'Show Details'}
+            onClick={() => setIsTextVisible(!isTextVisible)}
+      />
 
     <dl className="Card__list" hidden={!isTextVisible}>
             <dt><strong>Status:</strong></dt> 

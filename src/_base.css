@@ -1,0 +1,14 @@
+.filterButton {
+    border: none;
+    border-radius: 8px;
+    margin: 4px;
+    padding: 8px;
+    background: #bce784;
+    box-shadow: 0px 1px 3px #000;
+}
+
+.filterInput {
+    border: 1px double #348aa7;
+    margin: 4px;
+    font-size: 1em;
+}
