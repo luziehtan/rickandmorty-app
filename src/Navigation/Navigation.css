@@ -1,0 +1,12 @@
+.active {
+    border: 2px solid hotpink !important;
+  }
+
+  .Navigation {
+    display: flex;
+    width: 100%;
+  }
+
+  .Navigation button {
+    width: 100%;
+  }

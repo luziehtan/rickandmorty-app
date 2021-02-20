@@ -8,17 +8,19 @@ export default function Card({name, species, image, status, gender, origin, loca
     const [isTextVisible, setIsTextVisible] = useState(false)
 
     return (
-        <section className="Card">
-            <h2 className="Card__name">{name}</h2> ({species === 'Human' ? '🧍 Human' : '👽 Alien'})
-            <center><img className="Card__img" src={image} alt="" /></center>
+        <section className="Card"
+            style={{backgroundImage: 'url("' + image +'")', backgroundSize: '200px 200px'}}>
+            <h2 className="Card__name">{name}</h2>
             
             <Button 
-            className="Button"
+            className="Button Card__button"
             title={isTextVisible ? 'Hide Details' : 'Show Details'}
             onClick={() => setIsTextVisible(!isTextVisible)}
       />
 
     <dl className="Card__list" hidden={!isTextVisible}>
+            <dt><strong>Species:</strong></dt>
+                <dd><em>{species === 'Human' ? 'Human' : 'Alien'}</em></dd>
             <dt><strong>Status:</strong></dt> 
                 <dd><em>{status}</em></dd>
             <dt><strong>Gender:</strong></dt> 
