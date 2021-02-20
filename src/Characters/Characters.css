@@ -1,3 +1,9 @@
+.Characters__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+
 .filterButton {
     border: none;
     border-radius: 8px;
@@ -8,7 +14,8 @@
 }
 
 .filterInput {
-    border: 1px double #348aa7;
+    border: 1px solid #348aa7;
     margin: 4px;
     font-size: 1em;
+    width: 200px;
 }
