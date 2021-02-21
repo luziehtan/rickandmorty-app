@@ -1,0 +1,77 @@
+.Location__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.LocationCard {
+    position: relative;
+    width: 150px;
+    height: 120px;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    background: #b7e4f9;
+}
+
+.LocationCard__name {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0 25px;
+    border-radius: 8px;
+    margin-top: 0;
+    font-family: 'DotGothic16', sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
+
+.Card__button {
+    background: rgba(52,138,167, 0.6) !important;
+    position: absolute;
+    bottom: 5px;
+    left: 48px;
+    box-shadow: 0 1px 3px #000;
+}
+
+.LocationCard__list {
+    width: 220px;
+    height: 150px;
+    overflow-y: scroll;
+    border: 2px solid #b7e4f9;
+    border-radius: 8px;
+    padding: 3px;
+    font-family: 'Audiowide', cursive;
+    font-size: 12px;
+    position: absolute;
+    top: -12px;
+    left: 200px;
+    text-align: left;
+}
+
+.Card__img {
+    margin: 20px;
+    height: 80px;
+    border-radius: 8px;
+}
+
+  dt {
+    float: left;
+    clear: left;
+    text-align: left;
+    font-weight: bold;
+    color: #348aa7;
+  }
+
+  dd {
+    margin: 0 0 0 65px;
+    padding: 0 0 0.5em 1em;
+    width: 150px;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
