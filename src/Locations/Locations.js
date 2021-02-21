@@ -1,63 +1,41 @@
 import React from 'react'
-import Card from '../Card/Card'
-import Button from '../Button/Button'
+import LocationCard from '../LocationCard/LocationCard'
 import '../Characters/Characters.css'
 
-export default function Characters({hidden}) {
+export default function Locations({hidden}) {
 
-    const [characters, setCharacters] = React.useState([])
-    const [filteredSpecies, setFilteredSpecies] = React.useState('all')
-    const [userInput, setUserInput] = React.useState('')
+    const [locations, setLocations] = React.useState([])
 
     React.useEffect(() => {
-     getAllCharacters() // no url provided, so the default parameter is used
+     getAllLocations() // no url provided, so the default parameter is used
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    function getAllCharacters(url = 'https://rickandmortyapi.com/api/character') {
+    function getAllLocations(url = 'https://rickandmortyapi.com/api/location') {
   
         fetch(url)
             .then(res => res.json())
             .then(data => { // data is this object: {info: ..., results: ...}
     
             // https://reactjs.org/docs/hooks-reference.html#functional-updates
-            setCharacters(oldState => [...oldState, ...data.results])
+            setLocations(oldState => [...oldState, ...data.results])
     
      const nextUrl = data.info.next // contains the next url, if it exists
-      nextUrl && getAllCharacters(nextUrl) // if nextUrl exists, fetch it
+      nextUrl && getAllLocations(nextUrl) // if nextUrl exists, fetch it
         })
 }
 
 return (
-  <div hidden={hidden} className="Characters">
-    <Button className="Button Button__filter"
-      onClick={() => setFilteredSpecies('Human')} 
-      disabled={filteredSpecies === 'Human'} title='Poopoo' />
-    <Button className="Button Button__filter"
-      onClick={() => setFilteredSpecies('Alien')} 
-      disabled={filteredSpecies === 'Alien'} title='Foobar' />
-    <Button className="Button Button__filter"
-      onClick={() => setFilteredSpecies('all')}
-      disabled={filteredSpecies === 'all'}  title='All' /><br></br>
+  <div hidden={hidden} className="Locations">
 
-    <input 
-      className="filterInput"
-      value={userInput}
-      onChange={event => setUserInput(event.target.value)} placeholder="Filter by name" />
-
-  {characters
-          .filter(character => filteredSpecies === 'all' || character.species === filteredSpecies)
-          .filter(character => character.name.toLowerCase().includes(userInput.toLowerCase()))
-          .map(({id, name, species, image, status, gender, origin, location}) => 
-    <Card 
+  {locations
+          .map(({id, name, type, dimension, residents}) => 
+    <LocationCard 
       key={id} 
       name={name} 
-      species={species} 
-      image={image}
-      status={status}
-      gender={gender}
-      origin={origin.name}
-      location={location.name}
+      type={type}
+      dimension={dimension}
+      residents={residents}
     />)}
   </div>
 );
