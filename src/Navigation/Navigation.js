@@ -6,6 +6,10 @@ export default function Navigation({onNavigate, activeButton}) {
 
     return( 
       <nav className="Navigation">
+        <Button
+            className= {activeButton === 'RandomCharacter' ? 'Button active' : 'Button'}
+            onClick={() => onNavigate('RandomCharacter')}
+            title='Home' />
         <Button 
           className={activeButton === 'Characters' ? 'Button active' : 'Button'} 
           onClick={() => onNavigate('Characters')}
